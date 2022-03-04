@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All Courses</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body>
+
+
+<table class="table table-danger table-hover" >
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Course</th>
+        <th scope="col">Duration</th>
+        <th scope="col">Delete</th>
+        <th scope="col">Update</th>
+        <th scope="col">Page of Teacher</th>
+    </tr>
+    </thead>
+    <tbody th:each="c:${courseLists}">
+    <tr>
+        <th scope="row" th:text="${c.id}"></th>
+        <td ><a  th:href="@{/groups/{id5}(id5=${c.getId()})}"  th:text="${c.getCourseName()}"></a>
+<!--            <a th:href="@{/groups/{id}(id=${c.getId()})}" th:text="${c.getCourseName()}"></a></td>-->
+        <td th:text="${c.duration}"></td>
+        <td >
+            <form th:method="DELETE" th:action="@{/courses/{id}/{id1}/delete(id=${companyId},id1=${c.getId()})}">
+                <input type="submit" class="btn btn-primary" th:value="Delete">
+            </form>
+        </td>
+        </input>
+        <td>
+
+            <a class="btn btn-primary"  href="#offcanvasExample" role="button" th:href="@{/courses/{id}/{id2}/edit(id=${companyId},id2=${c.getId()})}">Update</a>
+        </td>
+        </input>
+        </input>
+        <td>
+
+            <a class="btn btn-primary"  href="#offcanvasExample" role="button" th:href="@{/teachers/{id}(id=${c.getId()})}">Page of Teacher</a>
+        </td>
+        </input>
+    </tr>
+
+    </tbody>
+</table>
+
+<a role="button" th:href="@{/courses/{id1}/newCourses(id1=${companyId})}">Add new course</a>
+<table>
+    <td>   <a role="button" th:href="@{/companies}">Back</a></td>
+</table>
+
+<br/>
+<br/>
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>

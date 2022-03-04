@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New Course</title>
+</head>
+<body>
+<form th:method="PATCH" th:action="@{/students/{id}/{id3}/update(id=${groupId},id3=${student.getId()})}" th:object="${student}">
+    <div class="Block">
+        <div >
+            <div>
+                <input style="margin-top: 30px" class="input" th:hidden="hidden" type="text" th:field="*{id}"/>
+                <label style="display: flex; padding-left: 60px" class="title" for="name">Enter Name: </label>
+                <input style="margin-top: 30px" class="input" type="text" th:field="*{name}" id="name"/>
+
+                <label style="display: flex; padding-left: 60px" class="title" for="surname">Enter Surname: </label>
+                <input style="margin-top: 30px" class="input"  type="text" th:field="*{surname}" id="surname"/>
+
+                <label style="display: flex; padding-left: 60px" class="title" for="email">Enter Email: </label>
+                <input style="margin-top: 30px" class="input"  type="text" th:field="*{email}" id="email"/>
+
+                <label style="display: flex; padding-left: 60px" class="title" for="studyFormat">Enter Format: </label>
+                <input style="margin-top: 30px" class="input"  type="text" th:field="*{studyFormat}" id="studyFormat"/>
+            </div>
+
+            <div>
+            </div>
+        </div>
+        <input type="submit"  class="btn btn-primary"th:value="update" >
+    </div>
+</form>
+</body>

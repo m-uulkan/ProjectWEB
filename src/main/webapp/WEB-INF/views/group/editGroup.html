@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New Teacher</title>
+</head>
+<body>
+
+
+<form th:method="PATCH" th:action="@{/groups/{id}/{id1}/update(id=${courseId},id1=${group.getId()})}" th:object="${group}">
+
+
+    <div class="Block">
+        <div >
+            <div>
+                <input style="margin-top: 30px" class="input" th:hidden="hidden" type="text" th:field="*{id}"/>
+                <label style="display: flex; padding-left: 60px" class="title" for="name">Enter Name: </label>
+                <input style="margin-top: 30px" class="input" type="text" th:field="*{nameGroup}" id="name"/>
+
+                <label style="display: flex; padding-left: 60px" class="title" for="surname">Enter DateOfStart: </label>
+                <input style="margin-top: 30px" class="input"  type="text" th:field="*{dateOfStart}" id="surname"/>
+
+                <label style="display: flex; padding-left: 60px" class="title" for="email">Enter DAteOfFinish: </label>
+                <input style="margin-top: 30px" class="input" type="text" th:field="*{dateOfFinish}" id="email"/>
+
+
+            </div>
+
+            <div>
+            </div>
+        </div>
+        <input type="submit"  class="btn btn-primary" th:value="save" >
+    </div>
+</form>
+</body>
